@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useMemo, useCallback } from 'react';
+
+import React, { createContext, useContext, useState, useMemo, useCallback, useEffect } from 'react';
 import { Todo, TodoCategory } from '@/types/todo';
 import { toast } from "sonner";
 
@@ -16,6 +17,8 @@ interface TodoContextType {
 
 const TodoContext = createContext<TodoContextType | undefined>(undefined);
 
+const STORAGE_KEY = 'persian-todo-list';
+
 export const useTodo = () => {
   const context = useContext(TodoContext);
   if (context === undefined) {
@@ -24,8 +27,24 @@ export const useTodo = () => {
   return context;
 };
 
-export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [todos, setTodos] = useState<Todo[]>([
+const loadTodosFromStorage = (): Todo[] => {
+  try {
+    const storedTodos = localStorage.getItem(STORAGE_KEY);
+    if (storedTodos) {
+      // Parse the stored JSON and ensure dates are properly converted back to Date objects
+      return JSON.parse(storedTodos, (key, value) => {
+        if (key === 'createdAt') {
+          return new Date(value);
+        }
+        return value;
+      });
+    }
+  } catch (error) {
+    console.error('Error loading todos from localStorage:', error);
+  }
+  
+  // Return default todos if nothing in storage or on error
+  return [
     {
       id: '1',
       text: 'خرید مواد غذایی',
@@ -47,8 +66,25 @@ export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children
       category: 'education',
       createdAt: new Date()
     }
-  ]);
+  ];
+};
+
+const saveTodosToStorage = (todos: Todo[]) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+  } catch (error) {
+    console.error('Error saving todos to localStorage:', error);
+  }
+};
+
+export const TodoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [todos, setTodos] = useState<Todo[]>(() => loadTodosFromStorage());
   const [activeCategory, setActiveCategory] = useState<TodoCategory>('all');
+
+  // Save todos to localStorage whenever they change
+  useEffect(() => {
+    saveTodosToStorage(todos);
+  }, [todos]);
 
   const addTodo = useCallback((text: string, category: Exclude<TodoCategory, 'all'>) => {
     const newTodo: Todo = {
