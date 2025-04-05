@@ -1,7 +1,6 @@
-
 import React, { createContext, useContext, useState, useMemo, useCallback } from 'react';
 import { Todo, TodoCategory } from '@/types/todo';
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 interface TodoContextType {
   todos: Todo[];
