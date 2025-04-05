@@ -6,7 +6,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: './', // This allows relative paths for GitHub Pages
+  base: './persia-todo-task/', // This allows relative paths for GitHub Pages
   server: {
     host: "::",
     port: 8080,
