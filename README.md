@@ -20,6 +20,7 @@ You can view the live demo of this project on GitHub Pages: https://[your-userna
 
 ## How to deploy to GitHub Pages
 
+### Method 1: Manual Deployment
 1. Create a repository on GitHub for this project
 2. Connect your Lovable project to the GitHub repository
 3. Clone the repository to your local machine
@@ -32,6 +33,12 @@ npm run build && npx gh-pages -d dist
 ```
 
 6. Go to your repository settings and enable GitHub Pages, selecting the gh-pages branch as the source
+
+### Method 2: Using GitHub Actions (Automated)
+1. Create a repository on GitHub for this project
+2. Push your code to the repository
+3. GitHub Actions will automatically build and deploy your site to GitHub Pages whenever you push to the main branch
+4. Go to your repository settings -> Pages and make sure the source is set to "GitHub Actions"
 
 ## How can I edit this code?
 
