@@ -29,7 +29,7 @@ You can view the live demo of this project on GitHub Pages: https://[your-userna
 
 ```bash
 # This will build the project and push it to the gh-pages branch
-npm run build && npx gh-pages -d dist
+node src/deploy.js
 ```
 
 6. Go to your repository settings and enable GitHub Pages, selecting the gh-pages branch as the source
