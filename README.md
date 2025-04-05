@@ -1,8 +1,37 @@
-# Welcome to your Lovable project
+
+# Persian Todo List Application
+
+A responsive Todo List application with category filtering, built with React, TypeScript, and Tailwind CSS.
+
+## Live Demo
+
+You can view the live demo of this project on GitHub Pages: https://[your-username].github.io/[your-repository-name]/
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/1b1b44ee-6c59-434e-984f-3ee9fada69de
+
+## Features
+
+- Add, toggle, and delete tasks
+- Filter tasks by category
+- Responsive design for all devices
+- RTL support for Persian language
+
+## How to deploy to GitHub Pages
+
+1. Create a repository on GitHub for this project
+2. Connect your Lovable project to the GitHub repository
+3. Clone the repository to your local machine
+4. Install dependencies with `npm install`
+5. Run the following command to deploy to GitHub Pages:
+
+```bash
+# This will build the project and push it to the gh-pages branch
+npm run build && npx gh-pages -d dist
+```
+
+6. Go to your repository settings and enable GitHub Pages, selecting the gh-pages branch as the source
 
 ## How can I edit this code?
 
@@ -59,15 +88,3 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/1b1b44ee-6c59-434e-984f-3ee9fada69de) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
