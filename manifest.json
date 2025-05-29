@@ -1,0 +1,33 @@
+{
+  "name": "Persia Todo Task",
+  "short_name": "Todo",
+  "description": "مدیریت کارهای روزانه با دسته‌بندی و تایمر",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "افزودن کار جدید",
+      "short_name": "کار جدید",
+      "description": "افزودن یک کار جدید به لیست",
+      "url": "/?action=new",
+      "icons": [{ "src": "icons/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+} 
